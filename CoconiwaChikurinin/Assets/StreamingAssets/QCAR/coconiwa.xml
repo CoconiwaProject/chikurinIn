@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="P-09" size="256.000000 256.000000" />
+    <ImageTarget name="L-04" size="256.000000 256.000000" />
+    <ImageTarget name="L-02" size="256.000000 256.000000" />
+    <ImageTarget name="L-01" size="256.000000 256.000000" />
+    <ImageTarget name="I-01" size="256.000000 256.000000" />
+    <ImageTarget name="A-21" size="256.000000 256.000000" />
+    <ImageTarget name="A-19" size="256.000000 256.000000" />
+    <ImageTarget name="A-14" size="256.000000 256.000000" />
+    <ImageTarget name="A-13" size="256.000000 256.000000" />
+    <ImageTarget name="A-07" size="256.000000 256.000000" />
+    <ImageTarget name="A-24" size="256.000000 256.000000" />
+    <ImageTarget name="A-23" size="256.000000 256.000000" />
+    <ImageTarget name="A-04" size="256.000000 256.000000" />
+    <ImageTarget name="A-03" size="256.000000 256.000000" />
+    <ImageTarget name="A-05" size="256.000000 256.000000" />
+    <ImageTarget name="A-02" size="256.000000 256.000000" />
+    <ImageTarget name="I-05" size="256.000000 256.000000" />
+    <ImageTarget name="I-02" size="256.000000 256.000000" />
+    <ImageTarget name="A-15" size="256.000000 256.000000" />
+    <ImageTarget name="A-09" size="256.000000 256.000000" />
+    <ImageTarget name="A-10" size="256.000000 256.000000" />
+    <ImageTarget name="P-03" size="256.000000 256.000000" />
+    <ImageTarget name="P-04" size="256.000000 256.000000" />
+    <ImageTarget name="P-10" size="256.000000 256.000000" />
+    <ImageTarget name="P-08" size="256.000000 256.000000" />
+    <ImageTarget name="P-06" size="256.000000 256.000000" />
+    <ImageTarget name="P-02" size="256.000000 256.000000" />
+    <ImageTarget name="P-01" size="256.000000 256.000000" />
+    <ImageTarget name="A-26" size="256.000000 256.000000" />
+    <ImageTarget name="A-25" size="256.000000 256.000000" />
+    <ImageTarget name="A-20" size="256.000000 256.000000" />
+    <ImageTarget name="A-18" size="256.000000 256.000000" />
+    <ImageTarget name="A-17" size="256.000000 256.000000" />
+    <ImageTarget name="A-16" size="256.000000 256.000000" />
+    <ImageTarget name="A-11" size="256.000000 256.000000" />
+    <ImageTarget name="A-08" size="256.000000 256.000000" />
+    <ImageTarget name="A-06" size="256.000000 256.000000" />
+  </Tracking>
+</QCARConfig>
