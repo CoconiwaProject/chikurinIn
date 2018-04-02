@@ -11,12 +11,6 @@ public class TutorialManager : MonoBehaviour
     [SerializeField]
     Transform textsTransform = null;
 
-    [SerializeField]
-    Sprite[] buttoneSprites = null;
-
-    [SerializeField]
-    Sprite[] notButtoneSprites = null;
-
 
     [SerializeField]
      Button nextButtone = null;
@@ -47,6 +41,7 @@ public class TutorialManager : MonoBehaviour
     private Vector3 mousePos;
     private Vector2 flickStartPosition;
 
+    public string[] JapaneseButtoneText;
     public string[] EnglishButtoneText;
     public string[] ChinaSimplificationButtoneText;
     public string[] ChinaTraditionalButtoneText;
@@ -60,14 +55,7 @@ public class TutorialManager : MonoBehaviour
         PlayerPrefs.SetString("Init", "");
         // UnityEngine.SceneManagement.SceneManager.LoadScene(SceneName);
 
-        if(SystemLanguage.Japanese==AppData.UsedLanguage)
-        {
-            buttoneText.gameObject.SetActive(false);
-        }
-        else
-        {
             SetStartButtone();
-        }
 
         isFlick = nowMove = false;
         moveSpeed = nowSelectCount = 0;
@@ -296,25 +284,11 @@ public class TutorialManager : MonoBehaviour
 
         if (nowSelect == EndSelectCount - 1)
         {
-            if (SystemLanguage.Japanese!=AppData.UsedLanguage)
                 buttoneText.text = useButtoneText[1];
-            nextButtone.GetComponent<Image>().sprite = buttoneSprites[2];
-            SpriteState s;
-            s.pressedSprite = buttoneSprites[3];
-            s.disabledSprite = buttoneSprites[2];
-            s.highlightedSprite = buttoneSprites[2];
-            nextButtone.spriteState = s;
         }
         else if (oldSelect == EndSelectCount - 1)
         {
-            if (SystemLanguage.Japanese != AppData.UsedLanguage)
                 buttoneText.text = useButtoneText[0];
-            nextButtone.GetComponent<Image>().sprite = buttoneSprites[0];
-            SpriteState s;
-            s.pressedSprite = buttoneSprites[1];
-            s.disabledSprite = buttoneSprites[0];
-            s.highlightedSprite = buttoneSprites[0];
-            nextButtone.spriteState = s;
         }
     }
 
@@ -325,6 +299,11 @@ public class TutorialManager : MonoBehaviour
         {
             for (int i = 0; i < useButtoneText.Length; i++)
                 useButtoneText[i] = ChinaSimplificationButtoneText[i];
+        }
+        else if (AppData.UsedLanguage == SystemLanguage.Japanese)
+        {
+            for (int i = 0; i < useButtoneText.Length; i++)
+                useButtoneText[i] = JapaneseButtoneText[i];
         }
         else if (AppData.UsedLanguage == SystemLanguage.ChineseTraditional)
         {
@@ -341,18 +320,8 @@ public class TutorialManager : MonoBehaviour
             for (int i = 0; i < useButtoneText.Length; i++)
                 useButtoneText[i] = EnglishButtoneText[i];
         }
-        buttoneSprites[0] = notButtoneSprites[0];
-        buttoneSprites[1] = notButtoneSprites[1];
-        buttoneSprites[2] = notButtoneSprites[0];
-        buttoneSprites[3] = notButtoneSprites[1];
 
         buttoneText.text = useButtoneText[0];
 
-        nextButtone.GetComponent<Image>().sprite = buttoneSprites[2];
-        SpriteState s;
-        s.pressedSprite = buttoneSprites[3];
-        s.disabledSprite = buttoneSprites[2];
-        s.highlightedSprite = buttoneSprites[2];
-        nextButtone.spriteState = s;
     }
 }
