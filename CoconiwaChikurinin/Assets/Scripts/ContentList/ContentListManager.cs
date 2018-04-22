@@ -8,13 +8,13 @@ public class ContentListManager : MonoBehaviour
     ContentsData contentsData = null;
 
     [SerializeField]
-    ContentGroup ContentGroupA = null;
+    ContentGroup ContentGroupN = null;
 
     [SerializeField]
-    ContentGroup ContentGroupP = null;
+    ContentGroup ContentGroupH = null;
 
     [SerializeField]
-    ContentGroup ContentGroupI = null;
+    ContentGroup ContentGroupY = null;
 
     [SerializeField]
     RectTransform contentRec = null;
@@ -33,27 +33,27 @@ public class ContentListManager : MonoBehaviour
             char h = contentsData.Elements[i].FileID[0];
 
             //タイプによって画像、色の変更
-            if (h == 'A')
+            if (h == 'N')
             {
-                ContentGroupA.contentParams.Add(contentsData.Elements[i]);
+                ContentGroupN.contentParams.Add(contentsData.Elements[i]);
 
             }
-            else if (h == 'P')
+            else if (h == 'H')
             {
-                ContentGroupP.contentParams.Add(contentsData.Elements[i]);
+                ContentGroupH.contentParams.Add(contentsData.Elements[i]);
 
             }
-            else if (h == 'L')
+            else if (h == 'Y')
             {
-                ContentGroupI.contentParams.Add(contentsData.Elements[i]);
+                ContentGroupY.contentParams.Add(contentsData.Elements[i]);
             }
         }
 
-        ContentGroupA.Create();
-        ContentGroupP.Create();
-        ContentGroupI.Create(ContentGroupP.mostUnderItem);
+        ContentGroupN.Create();
+        ContentGroupH.Create();
+        ContentGroupY.Create(ContentGroupH.mostUnderItem);
 
-        RectTransform rec = ContentGroupI.mostUnderItem.transform as RectTransform;
+        RectTransform rec = ContentGroupY.mostUnderItem.transform as RectTransform;
         RectTransform parentRec = rec.parent as RectTransform;
         float limit = rec.anchoredPosition.y + parentRec.anchoredPosition.y - 100.0f;
         Vector2 contentRecSize = contentRec.sizeDelta;

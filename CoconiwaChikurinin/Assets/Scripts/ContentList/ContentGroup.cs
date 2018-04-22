@@ -20,26 +20,28 @@ public class ContentGroup : MonoBehaviour
     public void Create(ContentListItem UnderItem = null)
     {
         //一つ上のグループの最下のアイテムが指定されていたらそれに合わせてグループの位置を移動
-        if(UnderItem!=null)
-        {
-            RectTransform rect = GetComponent<RectTransform>();
+        //if(UnderItem!=null)
+        //{
+        //    RectTransform rect = GetComponent<RectTransform>();
 
-            switch(AppData.UsedLanguage)
-            {
-                case SystemLanguage.English:
-                    rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, UnderItem.GetComponent<RectTransform>().anchoredPosition.y - 900);
-                    break;
-                case SystemLanguage.Japanese:
-                    rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, UnderItem.GetComponent<RectTransform>().anchoredPosition.y - 600);
-                    break;
-                case SystemLanguage.Korean:
-                case SystemLanguage.Chinese:
-                default:
-                    rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, UnderItem.GetComponent<RectTransform>().anchoredPosition.y - 700);
-                    break;
-            }
+        //    Debug.Log(UnderItem.gameObject.GetComponent<RectTransform>().anchoredPosition);
+
+        //    switch(AppData.UsedLanguage)
+        //    {
+        //        case SystemLanguage.English:
+        //            rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, UnderItem.GetComponent<RectTransform>().anchoredPosition.y - 900);
+        //            break;
+        //        case SystemLanguage.Japanese:
+        //            rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, UnderItem.GetComponent<RectTransform>().anchoredPosition.y + 90);
+        //            break;
+        //        case SystemLanguage.Korean:
+        //        case SystemLanguage.Chinese:
+        //        default:
+        //            rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, UnderItem.GetComponent<RectTransform>().anchoredPosition.y - 700);
+        //            break;
+        //    }
            
-        }
+        //}
         //配置するX座標
         const float leftX = 110.0f;
         const float rightX = 620.0f;

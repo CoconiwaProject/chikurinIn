@@ -51,7 +51,7 @@ public class DeveloperMenu : MonoBehaviour
         {
             char kind = contentsData.Elements[i].FileID[0];
 
-            if (kind == 'A' || kind == 'P' || kind == 'L'|| kind == 'I')
+            if (kind == 'H' || kind == 'N' || kind == 'Y'|| kind == 'I')
             {
                 PlayerPrefs.SetInt("GetContents" + contentsData.Elements[i].FileID, 1);
             }

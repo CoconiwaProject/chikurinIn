@@ -7,7 +7,7 @@ public class NamePopUp : MonoBehaviour
     string fileID = "";
 
     //Noneの場合はLの画像を使用する
-    private enum MakerType { P, A, L, None }
+    private enum MakerType { H, N, Y, None }
     public enum MakerSize { S, M, L, LL, None }
 
     void Start()
@@ -40,7 +40,7 @@ public class NamePopUp : MonoBehaviour
         //Lに変換
         if (type == MakerType.None)
         {
-            type = MakerType.L;
+            type = MakerType.Y;
         }
         int index = ((int)type * (int)MakerType.None) + (int)size;
         transform.GetChild(0).GetComponent<Image>().sprite = MapManager.I.balloonImageList[index];
@@ -48,9 +48,9 @@ public class NamePopUp : MonoBehaviour
 
     MakerType GetMakerType(string fileID)
     {
-        if (fileID[0] == 'A') return MakerType.A;
-        else if (fileID[0] == 'L') return MakerType.L;
-        else if (fileID[0] == 'P') return MakerType.P;
+        if (fileID[0] == 'N') return MakerType.N;
+        else if (fileID[0] == 'Y') return MakerType.Y;
+        else if (fileID[0] == 'H') return MakerType.H;
 
         return MakerType.None;
     }
