@@ -51,7 +51,7 @@ public class ContentListManager : MonoBehaviour
 
         ContentGroupN.Create();
         ContentGroupH.Create();
-        ContentGroupY.Create(ContentGroupH.mostUnderItem);
+        ContentGroupY.Create(ContentGroupN.mostUnderItem);
 
         RectTransform rec = ContentGroupY.mostUnderItem.transform as RectTransform;
         RectTransform parentRec = rec.parent as RectTransform;
