@@ -23,9 +23,13 @@ public class MapPositionController : MonoBehaviour
 
     MapManager mapManager;
 
+    float screenSizeRate;
+
     void Start()
     {
         imageSize = imageRect.sizeDelta;
+
+        screenSizeRate = 1.0f + (1.0f - ((float)Screen.width / 1080));
 
         TouchManager.Instance.Drag += OnImageSwipe;
 
@@ -42,7 +46,7 @@ public class MapPositionController : MonoBehaviour
 
     void Update()
     {
-        float tempSpeed = swipeSpeed + ((imageRect.localScale.x / MapScaleController.scaleRateMax) * (0.1f * mapManager.screenSizeRate));
+        float tempSpeed = swipeSpeed + ((imageRect.localScale.x / MapScaleController.scaleRateMax) * (0.1f * screenSizeRate));
         Vector3 movement = new Vector3(swipeVec.x, swipeVec.y, 0) * tempSpeed;
 
         //慣性

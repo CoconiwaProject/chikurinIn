@@ -16,6 +16,9 @@ public class ContentManager : MonoBehaviour
     Image imagePrefab = null;
 
     [SerializeField]
+    ContentsViewController contentsViewController = null;
+
+    [SerializeField]
     Text ContentName = null;
 
     [SerializeField]
@@ -43,23 +46,26 @@ public class ContentManager : MonoBehaviour
     {
         contentsData = AppData.ContentsData;
         index = GetIndex(AppData.SelectTargetName);
-        
+
         if (index == -1) return;
 
         string fileName = contentsData.Elements[index].FileID;
         char c = 'b';
+        string up = "_UP";
         Vector2 imagePosition = new Vector2(0.0f, 373.0f);
         int fileNum = 0;
+        Sprite sprite;
 
-        while(true)
+        while (true)
         {
-            if(fileNum > 0)
+            if (fileNum > 0)
             {
                 fileName = contentsData.Elements[index].FileID + c;
                 c++;
             }
 
-            Sprite sprite = Resources.Load<Sprite>(fileName);
+
+            sprite = Resources.Load<Sprite>(fileName);
             if (sprite == null) break;
 
             Image image = Instantiate(imagePrefab, imageContainer.transform);
@@ -73,8 +79,8 @@ public class ContentManager : MonoBehaviour
         maxImageNum = fileNum;
 
         ContentsSwipeController.I.SetImageNum(maxImageNum);
-        if(maxImageNum > 1) pageControl.Initialize(maxImageNum);
-        
+        if (maxImageNum > 1) pageControl.Initialize(maxImageNum);
+
         ContentName.text = contentsData.Elements[index].ContentsName;
         ContentText.GetText(contentsData.Elements[index].ContentsText);
 
@@ -96,6 +102,16 @@ public class ContentManager : MonoBehaviour
             Header.sprite = Inter;
             ContentsBack.color = new Color(0.19f, 0.3f, 0.54f);
         }
+
+        //拡大があったら
+        fileName = contentsData.Elements[index].FileID + up;
+        sprite = Resources.Load<Sprite>(fileName);
+        if (sprite == null)
+        {
+            contentsViewController.gameObject.SetActive(false);
+            return;
+        }
+        contentsViewController.SetInit(sprite);
     }
 
 

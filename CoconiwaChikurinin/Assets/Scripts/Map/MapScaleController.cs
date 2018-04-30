@@ -22,9 +22,12 @@ public class MapScaleController : MonoBehaviour
     Timer separateTime = new Timer();
 
     MapManager mapManager;
-    
+
+    float screenSizeRate;
+
     void Start()
     {
+        screenSizeRate = 1.0f + (1.0f - ((float)Screen.width / 1080));
         mapManager = MapManager.I;
     }
 
@@ -38,7 +41,7 @@ public class MapScaleController : MonoBehaviour
         currentScaleRate += Input.mouseScrollDelta.y * 0.2f;
 #else
         float pinchValue = GetPinchValue();
-        float tempSpeed = scalingSpeed + ((imageRect.localScale.x/ scaleRateMax) * (0.1f * mapManager.screenSizeRate));
+        float tempSpeed = scalingSpeed + ((imageRect.localScale.x/ scaleRateMax) * (0.1f *screenSizeRate));
         currentScaleRate += pinchValue * scalingSpeed;
 #endif
         // 限界値をオーバーした際の処理
