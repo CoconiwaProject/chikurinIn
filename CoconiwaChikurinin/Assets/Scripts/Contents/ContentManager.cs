@@ -87,20 +87,21 @@ public class ContentManager : MonoBehaviour
         contentsTextController.SetTextInterval();
         char h = contentsData.Elements[index].FileID[0];
 
+
         //タイプによって画像、色の変更
-        if (h == 'A')
+        if (h == 'H')
         {
-            Header.sprite = Artfact;
-            ContentsBack.color = new Color(0.65f, 0.25f, 0.0f);
+         //   Header.sprite = Artfact;
+            ContentsBack.color = new Color(0.68f, 0.08f, 0.64f);
         }
-        else if (h == 'P')
+        else if (h == 'N')
         {
-            Header.sprite = Prants;
+           // Header.sprite = Prants;
         }
-        else if (h == 'I')
+        else if (h == 'Y')
         {
-            Header.sprite = Inter;
-            ContentsBack.color = new Color(0.19f, 0.3f, 0.54f);
+           // Header.sprite = Inter;
+            ContentsBack.color = new Color(0.96f, 0.44f, 0.59f);
         }
 
         //拡大があったら
