@@ -30,11 +30,11 @@ public class ContentManager : MonoBehaviour
     Image Header = null;
 
     [SerializeField]
-    Sprite Inter = null;
+    Sprite History = null;
     [SerializeField]
-    Sprite Artfact = null;
+    Sprite Nature = null;
     [SerializeField]
-    Sprite Prants = null;
+    Sprite Yoshino = null;
 
     [SerializeField]
     ContentsTextController contentsTextController = null;
@@ -91,16 +91,16 @@ public class ContentManager : MonoBehaviour
         //タイプによって画像、色の変更
         if (h == 'H')
         {
-         //   Header.sprite = Artfact;
+            Header.sprite = History;
             ContentsBack.color = new Color(0.68f, 0.08f, 0.64f);
         }
         else if (h == 'N')
         {
-           // Header.sprite = Prants;
+            Header.sprite =Nature;
         }
         else if (h == 'Y')
         {
-           // Header.sprite = Inter;
+            Header.sprite = Yoshino;
             ContentsBack.color = new Color(0.96f, 0.44f, 0.59f);
         }
 
