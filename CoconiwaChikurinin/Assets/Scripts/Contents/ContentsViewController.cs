@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class ContentsViewController : MonoBehaviour
 {
@@ -14,18 +14,37 @@ public class ContentsViewController : MonoBehaviour
     [SerializeField]
     CanvasGroup contentGroup = null;
 
+    //0=押してない状態、1=押している
+    [SerializeField]
+    List<Sprite> upButtonSprite = null;
+
+    [SerializeField]
+    List<Sprite> outButtonSprite = null;
+
+    [SerializeField]
+    Button scaleButton = null;
+
+    [SerializeField]
+    RectTransform canTapRange = null;
+
+    const float TapRangeRatio = 1.9f;
+
+    bool canTapScaleButton = false;
+
     bool upMade = false;
+
+    float downStartTime = 0;
 
     public void SetInit(Sprite sprite)
     {
-        controlImage.sprite= sprite;
+        controlImage.sprite = sprite;
         //サイズ位置調整する
         controlImage.SetNativeSize();//もともとのにしてから
         //サイズ変更
         float x = controlImage.rectTransform.sizeDelta.x * maxYSize / controlImage.rectTransform.sizeDelta.y;
         //controlImage.rectTransform.sizeDelta *=  0.5f;
-        controlImage.rectTransform.sizeDelta = new Vector2(x,maxYSize);
-       // Debug.Log(controlImage.rectTransform.sizeDelta);
+        controlImage.rectTransform.sizeDelta = new Vector2(x, maxYSize);
+        // Debug.Log(controlImage.rectTransform.sizeDelta);
         //位置変更
         controlImage.rectTransform.anchoredPosition = Vector2.zero;
     }
@@ -35,8 +54,18 @@ public class ContentsViewController : MonoBehaviour
     /// </summary>
     public void PushUpBotton()
     {
-        if(upMade==false)
+        if (upMade == false)
         {
+            TapScaleImage(true);
+            canTapRange.sizeDelta = new Vector2(canTapRange.sizeDelta.x, canTapRange.sizeDelta.y * TapRangeRatio);
+
+            scaleButton.GetComponent<Image>().sprite = outButtonSprite[0];
+            SpriteState sprite;
+            sprite.pressedSprite = outButtonSprite[1];
+            sprite.highlightedSprite = outButtonSprite[0];
+            sprite.disabledSprite = outButtonSprite[0];
+            scaleButton.spriteState = sprite;
+
             controlImage.gameObject.SetActive(true);
             StartCoroutine(KKUtilities.FloatLerp(0.3f, (t) =>
             {
@@ -46,6 +75,16 @@ public class ContentsViewController : MonoBehaviour
         }
         else
         {
+            TapScaleImage(true);
+            canTapRange.sizeDelta = new Vector2(canTapRange.sizeDelta.x, canTapRange.sizeDelta.y / TapRangeRatio);
+
+            scaleButton.GetComponent<Image>().sprite = upButtonSprite[0];
+            SpriteState sprite;
+            sprite.pressedSprite = upButtonSprite[1];
+            sprite.highlightedSprite = upButtonSprite[0];
+            sprite.disabledSprite = upButtonSprite[0];
+            scaleButton.spriteState = sprite;
+
             controlImage.gameObject.SetActive(false);
             StartCoroutine(KKUtilities.FloatLerp(0.3f, (t) =>
             {
@@ -53,5 +92,45 @@ public class ContentsViewController : MonoBehaviour
             }));
             upMade = false;
         }
+    }
+
+    //移動演出、
+    public void TapScaleImage(bool changeMode=false)
+    {
+        if (changeMode == false)
+        {
+            float tapJudgeTime = 0.4f;
+            if (Time.time - downStartTime > tapJudgeTime)
+                return;
+        }
+        float drawButtonPosition = 478;
+
+        if (canTapScaleButton)
+        {
+            canTapScaleButton = false;
+            StartCoroutine(KKUtilities.FloatLerp(0.3f, (t) =>
+            {
+                scaleButton.GetComponent<RectTransform>().anchoredPosition
+                = new Vector2(Mathf.Lerp(drawButtonPosition, drawButtonPosition + scaleButton.GetComponent<RectTransform>().sizeDelta.x, t),
+                scaleButton.GetComponent<RectTransform>().anchoredPosition.y);
+            }));
+        }
+        else
+        {
+            canTapScaleButton = true;
+            StartCoroutine(KKUtilities.FloatLerp(0.3f, (t) =>
+            {
+                scaleButton.GetComponent<RectTransform>().anchoredPosition
+                = new Vector2(Mathf.Lerp(drawButtonPosition + scaleButton.GetComponent<RectTransform>().sizeDelta.x, drawButtonPosition, t),
+                scaleButton.GetComponent<RectTransform>().anchoredPosition.y);
+            }));
+        }
+        downStartTime = 0;
+    }
+
+    public void StartDawn()
+    {
+        //時間が長いとスライド時も出てしまうので
+        downStartTime = Time.time;
     }
 }

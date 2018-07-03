@@ -91,6 +91,8 @@ public class ContentManager : MonoBehaviour
         //タイプによって画像、色の変更
         if (h == 'H')
         {
+
+
             Header.sprite = History;
             ContentsBack.color = new Color(0.68f, 0.08f, 0.64f);
         }
@@ -98,12 +100,12 @@ public class ContentManager : MonoBehaviour
         {
             Header.sprite =Nature;
         }
-        else if (h == 'Y')
+        else if (h == 'Y'|| h == 'I')
         {
             Header.sprite = Yoshino;
             ContentsBack.color = new Color(0.96f, 0.44f, 0.59f);
         }
-
+       
         //拡大があったら
         fileName = contentsData.Elements[index].FileID + up;
         sprite = Resources.Load<Sprite>(fileName);
