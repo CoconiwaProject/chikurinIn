@@ -32,7 +32,7 @@ public class WorkSheetAnswer
             if (i < answers.Length-1) saveText += ',';
         }
         
-        Save(saveText, "answer");
+        Save(saveText, "answerChikurinin");
     }
 
     void Save(string text, string fileName)
