@@ -37,6 +37,16 @@ public class ContentManager : MonoBehaviour
     Sprite Yoshino = null;
 
     [SerializeField]
+    Image backButtonImage = null; 
+    [SerializeField]
+    Sprite HistoryButton = null;
+    [SerializeField]
+    Sprite NatureButton = null;
+    [SerializeField]
+    Sprite YoshinoButton = null;
+
+
+    [SerializeField]
     ContentsTextController contentsTextController = null;
 
     private int index;
@@ -87,25 +97,29 @@ public class ContentManager : MonoBehaviour
         contentsTextController.SetTextInterval();
         char h = contentsData.Elements[index].FileID[0];
 
-
+        Color color = default(Color);
         //タイプによって画像、色の変更
         if (h == 'H')
         {
-
-
+            backButtonImage.sprite = HistoryButton;
+            ColorUtility.TryParseHtmlString("#826787",out color);
             Header.sprite = History;
-            ContentsBack.color = new Color(0.68f, 0.08f, 0.64f);
         }
         else if (h == 'N')
         {
+            backButtonImage.sprite = NatureButton;
             Header.sprite =Nature;
+            ColorUtility.TryParseHtmlString("#268050", out color);
         }
         else if (h == 'Y'|| h == 'I')
         {
+            backButtonImage.sprite = YoshinoButton;
             Header.sprite = Yoshino;
-            ContentsBack.color = new Color(0.96f, 0.44f, 0.59f);
+            ColorUtility.TryParseHtmlString("#e79ea3", out color);
         }
-       
+        ContentsBack.color = color;
+
+
         //拡大があったら
         fileName = contentsData.Elements[index].FileID + up;
         sprite = Resources.Load<Sprite>(fileName);
