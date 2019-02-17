@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="N-08" size="256.000000 256.000000" />
+    <ImageTarget name="N-04" size="256.000000 249.788559" />
+    <ImageTarget name="Y-06" size="256.000000 295.000000" />
+    <ImageTarget name="Y-16" size="256.000000 295.000000" />
+    <ImageTarget name="Y-12" size="256.000000 295.000000" />
+    <ImageTarget name="Y-03" size="256.000000 295.000000" />
+    <ImageTarget name="Y-17" size="256.000000 295.000000" />
+    <ImageTarget name="Y-14" size="256.000000 295.000000" />
+    <ImageTarget name="Y-09" size="256.000000 295.000000" />
+    <ImageTarget name="Y-05" size="256.000000 295.000000" />
+    <ImageTarget name="Y-02" size="256.000000 295.000000" />
+    <ImageTarget name="N-09" size="256.000000 249.788559" />
+    <ImageTarget name="N-10" size="256.000000 249.788559" />
+    <ImageTarget name="Y-01" size="256.000000 295.000000" />
+    <ImageTarget name="N-13" size="256.000000 249.788559" />
+    <ImageTarget name="N-01" size="256.000000 249.788559" />
+    <ImageTarget name="I-01" size="256.000000 256.000000" />
+    <ImageTarget name="H-17" size="256.000000 173.143692" />
+    <ImageTarget name="Y-08" size="256.000000 295.000000" />
+    <ImageTarget name="Y-07" size="256.000000 295.000000" />
+    <ImageTarget name="Y-04" size="256.000000 295.000000" />
+    <ImageTarget name="N-14" size="256.000000 249.788559" />
+    <ImageTarget name="N-12" size="256.000000 249.788559" />
+    <ImageTarget name="N-11" size="256.000000 249.788559" />
+    <ImageTarget name="N-07" size="256.000000 249.788559" />
+    <ImageTarget name="N-06" size="256.000000 249.788559" />
+    <ImageTarget name="N-05" size="256.000000 249.788559" />
+    <ImageTarget name="N-03" size="256.000000 249.788559" />
+    <ImageTarget name="N-02" size="256.000000 249.788559" />
+    <ImageTarget name="H-16" size="256.000000 173.143692" />
+    <ImageTarget name="H-10" size="256.000000 173.143692" />
+    <ImageTarget name="H-09" size="256.000000 173.143692" />
+    <ImageTarget name="H-08" size="256.000000 173.143692" />
+    <ImageTarget name="H-05" size="256.000000 173.143692" />
     <ImageTarget name="H-15" size="256.000000 173.143692" />
     <ImageTarget name="H-14" size="256.000000 173.143692" />
     <ImageTarget name="H-11" size="256.000000 173.143692" />

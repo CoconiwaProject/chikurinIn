@@ -15,8 +15,6 @@ public class CreditController : MonoBehaviour
     Sprite EnglishHeaderSprite = null;
 
 
-
-
     [SerializeField]
     RectTransform japaneseTextBox = null;
     [SerializeField]
@@ -36,17 +34,18 @@ public class CreditController : MonoBehaviour
         KKUtilities.WaitSeconde(0.01f, () =>
         {
             RectTransform rectTransform;
-            if (AppData.UsedLanguage == SystemLanguage.Japanese)
-            {
+            //一旦英語の画像がないので強制的に日本語クレジット表示
+            //if (AppData.UsedLanguage == SystemLanguage.Japanese)
+            //{
                 japaneseTextBox.gameObject.SetActive(true);
                 rectTransform = japaneseTextBox;
-            }
-            else
-            {
-                englishTextBox.gameObject.SetActive(true);
-                rectTransform = englishTextBox;
-                Header.sprite = EnglishHeaderSprite;
-            }
+            //}
+            //else
+            //{
+            //    englishTextBox.gameObject.SetActive(true);
+            //    rectTransform = englishTextBox;
+            //    Header.sprite = EnglishHeaderSprite;
+            //}
 
             textBox.sizeDelta = new Vector2(textBox.sizeDelta.x, rectTransform.sizeDelta.y);
         }, this);
