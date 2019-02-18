@@ -9,13 +9,13 @@ public class TutorialText : MonoBehaviour
     string[] Japanese = new string[10]
     {
        "より深く楽しめる\n観光アプリ",
-        "ココニワは高校生と大学生が\n開発した観光アプリです\n名勝依水園をより深く\n楽しむことができます",
+        "ココニワは高校生と大学生が\n開発した観光アプリです\n竹林院をより深く\n楽しむことができます",
         "木札マーカーを見つけよう",
         "園内にはいくつかの木札マーカーが\n設置されているので\n見つけてみよう！",
         "AR機能を使って\n写真を撮ろう",
         "木札マーカーを見つけたら\nカメラアイコンをタップして\n写真を撮ろう！",
         "コンテンツが\n楽しめる",
-        "撮影したコンテンツの\n写真や説明が表示され\nより深く依水園のことを\n知ることができます",
+        "撮影したコンテンツの\n写真や説明が表示され\nより深く竹林院のことを\n知ることができます",
         "コンプリートしよう",
         "コンテンツはマップ上に\n反映され確認できます\nコンテンツを全て集めて\nコンプリートを目指そう！",
     };
@@ -23,13 +23,13 @@ public class TutorialText : MonoBehaviour
     string[] English = new string[10]
     {
         "Application for better sightseeing",
-        "Coconiwa is an application for sightseeing that high school and universuty students developed.You can enjoy the scenic spot \"Isui-en\" more deeply.",
+        "Coconiwa is an application for sightseeing that high school and universuty students developed.You can enjoy the scenic spot \"Chikurin-in\" more deeply.",
         "Please find the wooden tags.",
         "Some wooden tags are set up in the garden. Please find them!!",
         "Please take a picture with AR function.",
         "Find the wooden tag and tap a camera icon to take a picture.",
         "You can enjoy the contents.",
-        "The pictures and explanations are shown and you can understand the Isui-en more deeply.",
+        "The pictures and explanations are shown and you can understand the Chikurin-in more deeply.",
         "Let's complete.",
         "The contents are reflected on a map and you can confirm them.Try to collect all contents and complete it ! ",
      };
