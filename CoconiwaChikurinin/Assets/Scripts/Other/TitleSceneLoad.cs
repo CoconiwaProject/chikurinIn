@@ -11,9 +11,16 @@ public class TitleSceneLoad : MonoBehaviour
 
     private void Start()
     {
-       // AppData.UsedLanguage = Application.systemLanguage;
-         AppData.UsedLanguage = SystemLanguage.Japanese;
-
+         //日本語以外は英語に
+        if (Application.systemLanguage==SystemLanguage.Japanese)
+        {
+            AppData.UsedLanguage = SystemLanguage.Japanese;
+        }
+        else
+        {
+            AppData.UsedLanguage = SystemLanguage.English;
+        }
+        //  AppData.UsedLanguage = SystemLanguage.Japanese;
     }
 
     public void NextScene()
