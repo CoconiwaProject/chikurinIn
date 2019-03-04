@@ -5,6 +5,7 @@ public class MapPositionController : MonoBehaviour
     [SerializeField]
     RectTransform imageRect = null;
     Vector2 imageSize;
+    [SerializeField]//固有の位置にしたい場合のみ
     Vector3 imagePivot = new Vector3(0.35f, 0.35f);
 
     //キャッシュ
@@ -65,7 +66,7 @@ public class MapPositionController : MonoBehaviour
         imagePivot.y = Mathf.Clamp(imagePivot.y, 0.0f, 1.0f);
 
         //ある程度小さくなったらゼロとみなす
-        if(inerVec.x < minimumIner && inerVec.x > -minimumIner &&
+        if (inerVec.x < minimumIner && inerVec.x > -minimumIner &&
             inerVec.y < minimumIner && inerVec.y > -minimumIner)
         {
             inerVec = zeroVec;
@@ -81,7 +82,6 @@ public class MapPositionController : MonoBehaviour
     void OnImageSwipe(object sender, CustomInputEventArgs e)
     {
         if (Input.touchCount >= 2) return;
-
         swipeVec = e.Input.DeltaPosition;
     }
 }
