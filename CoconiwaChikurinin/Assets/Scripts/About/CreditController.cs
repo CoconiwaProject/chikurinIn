@@ -35,17 +35,17 @@ public class CreditController : MonoBehaviour
         {
             RectTransform rectTransform;
             //一旦英語の画像がないので強制的に日本語クレジット表示
-            //if (AppData.UsedLanguage == SystemLanguage.Japanese)
-            //{
+            if (AppData.UsedLanguage == SystemLanguage.Japanese)
+            {
                 japaneseTextBox.gameObject.SetActive(true);
                 rectTransform = japaneseTextBox;
-            //}
-            //else
-            //{
-            //    englishTextBox.gameObject.SetActive(true);
-            //    rectTransform = englishTextBox;
-            //    Header.sprite = EnglishHeaderSprite;
-            //}
+            }
+            else
+            {
+                englishTextBox.gameObject.SetActive(true);
+                rectTransform = englishTextBox;
+                Header.sprite = EnglishHeaderSprite;
+            }
 
             textBox.sizeDelta = new Vector2(textBox.sizeDelta.x, rectTransform.sizeDelta.y);
         }, this);
