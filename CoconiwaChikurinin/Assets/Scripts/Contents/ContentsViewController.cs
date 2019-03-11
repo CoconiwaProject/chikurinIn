@@ -56,7 +56,10 @@ public class ContentsViewController : MonoBehaviour
     {
         if (upMade == false)
         {
+            upMade = true;
+            canTapScaleButton = true;
             TapScaleImage(true);
+
             canTapRange.sizeDelta = new Vector2(canTapRange.sizeDelta.x, canTapRange.sizeDelta.y * TapRangeRatio);
 
             scaleButton.GetComponent<Image>().sprite = outButtonSprite[0];
@@ -71,11 +74,11 @@ public class ContentsViewController : MonoBehaviour
             {
                 contentGroup.alpha = Mathf.Lerp(1, 0, t);
             }));
-            upMade = true;
+
         }
         else
         {
-            TapScaleImage(true);
+            TapScaleImage(false);
             canTapRange.sizeDelta = new Vector2(canTapRange.sizeDelta.x, canTapRange.sizeDelta.y / TapRangeRatio);
 
             scaleButton.GetComponent<Image>().sprite = upButtonSprite[0];
@@ -95,8 +98,13 @@ public class ContentsViewController : MonoBehaviour
     }
 
     //移動演出、
-    public void TapScaleImage(bool changeMode=false)
+    public void TapScaleImage(bool changeMode = false)
     {
+        if (upMade == false)
+        {
+            return;
+        }
+
         if (changeMode == false)
         {
             float tapJudgeTime = 0.4f;
