@@ -8,10 +8,10 @@ public class ThetaText : MonoBehaviour
     private const int buttoneCount = 3;
 
     //言語によって余計なものが混じっているので直接
-    string[] JapaneseTexts = new string[buttoneCount] { "前園", "後園", "柳生堂" };
+    string[] JapaneseTexts = new string[buttoneCount] { "前庭", "主庭", "柳生堂" };
     string[] ChineseTraditionalTexts = new string[buttoneCount] { "前園", "後園", "柳生堂" };
     string[] ChineseSimplifiedTexts = new string[buttoneCount] { "前园", "后园", "柳生堂" };
-    string[] EnglishTexts = new string[buttoneCount] { "the Front Garden", "the Back Garden", "The Yagyu-do Hall" };
+    string[] EnglishTexts = new string[buttoneCount] { "the Front Garden", "the Main Garden", "The Yagyu-do Hall" };
     string[] KoreanTexts = new string[buttoneCount] { "전원", "후원", "야규당" };
 
     string addText = "360°";
