@@ -38,21 +38,21 @@ public class AboutSceneManager : MonoBehaviour
             });
 
 
-#if DEVELOPMENT_BUILD || UNITY_EDITOR
-        AboutItem workSheet = Instantiate(itemPrefab, itemContainer);
-        workSheet.Init("アンケート回答",
-            () =>
-            {
-                developerMenu.StartWorkSheet();
-            });
+//#if DEVELOPMENT_BUILD || UNITY_EDITOR
+//        AboutItem workSheet = Instantiate(itemPrefab, itemContainer);
+//        workSheet.Init("アンケート回答",
+//            () =>
+//            {
+//                developerMenu.StartWorkSheet();
+//            });
 
         AboutItem developMenu = Instantiate(itemPrefab, itemContainer);
 
-        developMenu.Init("開発者向け",
+        developMenu.Init("木札が見つからない時は",
             () =>
             {
                 developerMenu.Open();
             });
-#endif
+//#endif
     }
 }

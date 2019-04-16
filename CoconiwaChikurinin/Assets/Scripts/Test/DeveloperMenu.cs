@@ -18,8 +18,25 @@ public class DeveloperMenu : MonoBehaviour
     [SerializeField]
     GameObject workSheetManager = null;
 
+    [SerializeField]
+    GameObject firstWindow = null;
+
+    [SerializeField]
+    GameObject completeWindow = null;
+    [SerializeField]
+    GameObject resultCompleteWindow = null;
+
+
+    [SerializeField]
+    GameObject resetWindow = null;
+    [SerializeField]
+    GameObject resultResetWindow = null;
+
+    GameObject nowDraw = null;
+
     private void Start()
     {
+        nowDraw = firstWindow;
         contentsData = AppData.ContentsData;
     }
 
@@ -31,18 +48,35 @@ public class DeveloperMenu : MonoBehaviour
 
     public void Close()
     {
+        nowDraw = firstWindow;
         developMenu.SetActive(false);
         content.SetActive(true);
+        resetWindow.SetActive(false);
+        resultResetWindow.SetActive(false);
+        completeWindow.SetActive(false);
+        resultCompleteWindow.SetActive(false);
+        firstWindow.SetActive(true);
     }
 
     public void DeleteSaveData()
     {
-        PlayerPrefs.DeleteAll();
-        if(popUpCoroutine != null)
+        //PlayerPrefs.DeleteAll();
+        for (int i = 0; i < contentsData.Elements.Count; i++)
         {
-            StopCoroutine(popUpCoroutine);
+            char kind = contentsData.Elements[i].FileID[0];
+
+            if (kind == 'H' || kind == 'N' || kind == 'Y' || kind == 'I')
+            {
+                PlayerPrefs.DeleteKey("GetContents" + contentsData.Elements[i].FileID);
+            }
         }
-        popUpCoroutine = StartCoroutine(MessagePopUp("全てのデータを削除しました。", 1.0f));
+
+
+        //if (popUpCoroutine != null)
+        //{
+        //    StopCoroutine(popUpCoroutine);
+        //}
+        //   popUpCoroutine = StartCoroutine(MessagePopUp("全てのデータを削除しました。", 1.0f));
     }
 
     public void SetCompleteSaveData()
@@ -51,16 +85,16 @@ public class DeveloperMenu : MonoBehaviour
         {
             char kind = contentsData.Elements[i].FileID[0];
 
-            if (kind == 'H' || kind == 'N' || kind == 'Y'|| kind == 'I')
+            if (kind == 'H' || kind == 'N' || kind == 'Y' || kind == 'I')
             {
                 PlayerPrefs.SetInt("GetContents" + contentsData.Elements[i].FileID, 1);
             }
         }
-        if (popUpCoroutine != null)
-        {
-            StopCoroutine(popUpCoroutine);
-        }
-        popUpCoroutine = StartCoroutine(MessagePopUp("全てのデータを取得しました。", 1.0f));
+        //if (popUpCoroutine != null)
+        //{
+        //    StopCoroutine(popUpCoroutine);
+        //}
+        //  popUpCoroutine = StartCoroutine(MessagePopUp("全てのデータを取得しました。", 1.0f));
     }
 
     IEnumerator MessagePopUp(string message, float duration)
@@ -85,4 +119,10 @@ public class DeveloperMenu : MonoBehaviour
         workSheetManager.SetActive(false);
     }
 
+    public void ChangeNextWindow(GameObject newWindow)
+    {
+        nowDraw.SetActive(false);
+        newWindow.SetActive(true);
+        nowDraw = newWindow;
+    }
 }
