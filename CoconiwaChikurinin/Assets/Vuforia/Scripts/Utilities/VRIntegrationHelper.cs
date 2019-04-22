@@ -93,14 +93,14 @@ public class VRIntegrationHelper : MonoBehaviour
                 VuforiaBehaviour.Instance.ApplyCorrectedProjectionMatrix(mLeftCameraMatrixOriginal, true);
                 VuforiaBehaviour.Instance.ApplyCorrectedProjectionMatrix(mRightCameraMatrixOriginal, false);
 
-#if !(UNITY_5_2 || UNITY_5_1 || UNITY_5_0) // UNITY_5_3 and above
+//#if !(UNITY_5_2 || UNITY_5_1 || UNITY_5_0) // UNITY_5_3 and above
 
-                // read back the projection matrices set by Vuforia and set them to the stereo cameras
-                // not sure if the matrices would automatically propagate between the left and right, so setting it explicitly twice
-                mLeftCamera.SetStereoProjectionMatrices(mLeftCamera.projectionMatrix, mRightCamera.projectionMatrix);
-                mRightCamera.SetStereoProjectionMatrices(mLeftCamera.projectionMatrix, mRightCamera.projectionMatrix);
+//                // read back the projection matrices set by Vuforia and set them to the stereo cameras
+//                // not sure if the matrices would automatically propagate between the left and right, so setting it explicitly twice
+//                mLeftCamera.SetStereoProjectionMatrices(mLeftCamera.projectionMatrix, mRightCamera.projectionMatrix);
+//                mRightCamera.SetStereoProjectionMatrices(mLeftCamera.projectionMatrix, mRightCamera.projectionMatrix);
 
-#endif
+//#endif
                 // reset the left camera
                 mLeftCamera.transform.localPosition = localPosLeftCam;
                 mLeftCamera.pixelRect = leftCamPixelRect;
