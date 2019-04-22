@@ -48,7 +48,7 @@ public class AboutSceneManager : MonoBehaviour
 
         AboutItem developMenu = Instantiate(itemPrefab, itemContainer);
 
-        developMenu.Init("木札が見つからない時は",
+        developMenu.Init(AppData.UsedLanguage == SystemLanguage.Japanese ? "木札が見つからない時は" : "If the wooden tags can not be found.",
             () =>
             {
                 developerMenu.Open();
